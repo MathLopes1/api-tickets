@@ -1,6 +1,7 @@
 const app = require('./App.js')
+require('dotenv/config')
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
     return console.log(`App on in port ${PORT}`)
