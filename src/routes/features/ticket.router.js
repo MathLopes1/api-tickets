@@ -4,6 +4,7 @@ module.exports = (server, routes, prefix = '/api/v1/ticket') => {
     routes.post('/', ticketController.createTicket);
     routes.get('/', ticketController.getAllTickets);
     routes.get('/:id', ticketController.getTicketById);
+    routes.put('/:id', ticketController.updateTicketById);
     
     server.use(prefix, routes);
 };
