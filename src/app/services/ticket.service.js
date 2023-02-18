@@ -1,6 +1,9 @@
+const TicketRepository = require("../repositories/ticket.repository.js");
+
 class TicketService {
-    createTicket(ticket){
-        return ticket;
+    async createTicket(ticket){
+        const newTicket = await TicketRepository.create(ticket);
+        return newTicket;
     }
 }
 
