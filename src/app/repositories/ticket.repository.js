@@ -28,6 +28,14 @@ class TicketRepository {
             data: data
         })
     }
+
+    async deleteById(id) {
+        return await prismaService.tickets.delete({
+            where: {
+                id: id
+            }        
+        })
+    }
 }
 
 const ticketRepository = new TicketRepository();
