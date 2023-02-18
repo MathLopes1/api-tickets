@@ -2,10 +2,31 @@ const { PrismaClient } = require('@prisma/client')
 const prismaService = new PrismaClient()
 
 class TicketRepository {
-    create(ticket) {
-        return prismaService.tickets.create({
+    async create(ticket) {
+        return await prismaService.tickets.create({
             data: ticket
         });
+    }
+
+    async getAll() {
+        return await prismaService.tickets.findMany();
+    }
+
+    async getById(id) {
+        return await prismaService.tickets.findUnique({
+            where: {
+                id: id
+            }
+        })
+    }
+
+    async updateById(id, data) {
+        return await prismaService.tickets.update({
+            where: {
+                id: id
+            },
+            data: data
+        })
     }
 }
 
