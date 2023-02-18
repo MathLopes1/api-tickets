@@ -16,6 +16,19 @@ class TicketController {
         const ticket = await ticketService.getTicketById(ticketId);
         res.status(200).json(ticket);
     } 
+
+    async updateTicketById(req, res) {
+        const ticketId = parseInt(req.params.id);
+        const payload = req.body;
+        const ticket = await ticketService.updateTicketById(ticketId, payload);
+        res.status(200).json(ticket);
+    }
+    
+    async deleteTicketById(req, res) {
+        const ticketId = parseInt(req.params.id);
+        const ticket = await ticketService.deleteTicketById(ticketId);
+        res.status(200).json(ticket);
+    } 
 }
 
 const ticketController = new TicketController();

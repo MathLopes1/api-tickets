@@ -15,6 +15,16 @@ class TicketService {
         const ticket = await TicketRepository.getById(id);
         return ticket;
     }
+
+    async updateTicketById(id, payload) {
+        const ticketUpdated = await TicketRepository.updateById(id, payload);
+        return ticketUpdated;
+    }
+
+    async deleteTicketById(id) {
+        const ticket = await TicketRepository.deleteById(id);
+        return ticket;
+    }
 }
 
 const ticketService = new TicketService();
