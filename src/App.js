@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const router = require('./routes/index.js');
 
 class App {
@@ -9,6 +10,7 @@ class App {
     }
 
     routes() {
+        this.server.use(cors())
         router(this.server);
     }
 
